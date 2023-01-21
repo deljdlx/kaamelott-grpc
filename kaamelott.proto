@@ -1,0 +1,46 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.kaamelott";
+option java_outer_classname = "KaamelottProto";
+option objc_class_prefix = "HLW";
+
+package kaamelott;
+
+// The greeting service definition.
+service Kaamelott {
+  // Sends a greeting
+  rpc getRandomQuote (RandomQuoteRequest) returns (Quote) {}
+}
+
+
+message RandomQuoteRequest {
+}
+
+
+message Quote {
+  string quote = 10;
+  QuoteInfos infos = 20;
+}
+
+message QuoteInfos {
+  string episode = 10;
+  string season = 20;
+  string character = 40;
+  string actor = 50;
+}
+
